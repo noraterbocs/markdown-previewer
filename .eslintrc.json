@@ -104,6 +104,17 @@
                 "children": true
             }
         ],
+        "react/jsx-props-no-spreading": [
+            "error",
+            {
+                "html": "ignore",
+                "custom": "enforce",
+                "explicitSpread": "ignore",
+                "exceptions": [
+                    "App"
+                ]
+            }
+        ],
         "react/jsx-filename-extension": "off",
         "react/jsx-no-bind": "error",
         "react/jsx-uses-react": "warn",

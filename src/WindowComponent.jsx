@@ -2,7 +2,7 @@
 /* eslint-disable indent */
 /* eslint-disable react/jsx-closing-tag-location */
 import React, { useState } from 'react';
-import { SiEditorconfig } from 'react-icons/si'
+import { MdPreview, MdOutlineEdit } from 'react-icons/md'
 import { AiOutlineFullscreen, AiOutlineFullscreenExit } from 'react-icons/ai'
 import { Preview } from './Preview';
 
@@ -14,19 +14,22 @@ export const WindowComponent = ({ headerName, text, setText }) => {
   return (
     <section className={fullscreen ? 'fullscreen' : `${headerName}-container`}>
       <header className={`${headerName}-header`}>
-        <p className="header-text"><SiEditorconfig /><span>{headerName}</span></p>
-        <AiOutlineFullscreen onClick={fullscreenHandler} style={{ display: fullscreen ? 'none' : 'flex' }} />
-        <AiOutlineFullscreenExit onClick={fullscreenHandler} style={{ display: fullscreen ? 'flex' : 'none' }} />
+        <p className="header-text">
+          {headerName === 'editor' ? <MdOutlineEdit className="icon" /> : <MdPreview className="icon" />}
+          <span>{headerName.charAt(0).toUpperCase() + headerName.slice(1)}</span>
+        </p>
+        <AiOutlineFullscreen className="icon" onClick={fullscreenHandler} style={{ display: fullscreen ? 'none' : 'flex' }} />
+        <AiOutlineFullscreenExit className="icon" onClick={fullscreenHandler} style={{ display: fullscreen ? 'flex' : 'none' }} />
       </header>
       {headerName === 'editor'
-        && <textarea
+        ? <textarea
           id="editor"
           className="editor"
           value={text}
-          onChange={(event) => setText(event.target.value)} />}
-      {headerName === 'preview' && <div className="preview">
-        <Preview key={text} text={text} />
-      </div>}
+          onChange={(event) => setText(event.target.value)} />
+        : <div id="preview" className="preview">
+          <Preview key={text} text={text} />
+        </div>}
     </section>
   );
 }
