@@ -87,6 +87,15 @@ $font-stack: Helvetica, sans-serif;
   top: 0
 }
 
+.inline-code {
+  background-color: rgb(255, 255, 255);
+  padding: 0.2rem;
+  border-radius: 2px;
+  box-shadow: $shadow;
+  color: orange;
+  font-weight: 600;
+}
+
 .icon {
   margin: 0rem 0.5rem;
   transition: transform 0.2s, box-shadow 0.2s;

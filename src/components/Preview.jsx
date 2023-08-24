@@ -10,25 +10,27 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 export const Preview = ({ text }) => {
+  const codeRenderer = {
+    code({ inline, className, children }) {
+      const match = /language-(\w+)/.exec(className || '')
+      return !inline && match ? (
+        <SyntaxHighlighter
+          children={String(children).replace(/\n$/, '')}
+          style={dark}
+          language={match[1]}
+          PreTag="div" />
+      ) : (
+        <code className="inline-code">
+          {children}
+        </code>
+      )
+    }
+  }
+
   return (
     <ReactMarkdown
       children={text}
       remarkPlugins={[remarkGfm, remarkBreaks]}
-      components={{
-        code({ inline, className, children }) {
-          const match = /language-(\w+)/.exec(className || '')
-          return !inline && match ? (
-            <SyntaxHighlighter
-              children={String(children).replace(/\n$/, '')}
-              style={dark}
-              language={match[1]}
-              PreTag="div" />
-          ) : (
-            <code className={className}>
-              {children}
-            </code>
-          )
-        }
-      }} />
+      components={codeRenderer} />
   )
 }
