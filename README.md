@@ -15,7 +15,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 This is part of the Free Code Camp - Frontend libraries certification built with:
 - React
-- Still to come: Sass
+- Sass
 - Still to come: React context
+- Still to come: Testing in Jest
 
 The project is deployed here: https://lambent-narwhal-cbd5af.netlify.app

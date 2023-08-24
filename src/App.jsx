@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './App.css';
-import { WindowComponent } from './WindowComponent';
+import './style/App.scss';
+import { WindowComponent } from './components/WindowComponent';
 import data from './data.json'
 
 const App = () => {

@@ -1,0 +1,105 @@
+$header-color: peachpuff;
+$header-color-preview: #3da58f;
+$shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+$border-color: grey;
+$background-color: antiquewhite;
+$background-color-preview: #96d4c7;
+$spacing: 1rem;
+$font-stack: Helvetica, sans-serif;
+
+@mixin container-theme($width: 70%, $height: 200px) {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: $width;
+  height: $height;
+  box-sizing: border-box;
+  margin: $spacing;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid $border-color;
+  box-shadow: $shadow;
+}
+
+@mixin window-content-theme($background-color-variable: $background-color) {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  background-color: $background-color-variable;
+  overflow: auto;
+  padding: $spacing;
+  border: 0
+}
+
+@mixin header-theme ($header-color-variable: $header-color) {
+  box-sizing: border-box;
+  background-color: $header-color-variable;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  gap: 1rem;
+}
+
+.editor-container {
+  @include container-theme;
+}
+
+.editor-header {
+  @include header-theme
+}
+
+.preview-header {
+  @include header-theme($header-color-variable: $header-color-preview)
+}
+
+.header-text {
+  display: flex;
+  justify-content: center;
+}
+
+.editor {
+  @include window-content-theme;
+  border: 0
+}
+
+.preview-container {
+  @include container-theme($width: 80%, $height: 400px);
+}
+
+.preview {
+  @include window-content-theme($background-color-variable: $background-color-preview);
+}
+
+.fullscreen {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0
+}
+
+.icon {
+  margin: 0rem 0.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 1024px) {
+
+  .editor-container,
+  .preview-container {
+    width: 800px
+  }
+}
