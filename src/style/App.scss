@@ -68,7 +68,8 @@ $font-stack: Helvetica, sans-serif;
 
 .editor {
   @include window-content-theme;
-  border: 0
+  border: 0;
+  resize: none
 }
 
 .preview-container {
