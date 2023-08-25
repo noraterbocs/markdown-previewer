@@ -31,7 +31,7 @@ export const WindowComponent = ({ headerName }) => {
           value={text}
           onChange={(event) => setText(event.target.value)} />
         : <div id="preview" className="preview">
-          <Preview key={text} text={text} />
+          <Preview key={text} />
         </div>}
     </section>
   );

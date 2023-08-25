@@ -8,8 +8,10 @@ import remarkBreaks from 'remark-breaks'
 import remarkGfm from 'remark-gfm'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { useText } from '../context/WindowComponent.context';
 
-export const Preview = ({ text }) => {
+export const Preview = () => {
+  const { text } = useText();
   const codeRenderer = {
     code({ inline, className, children }) {
       const match = /language-(\w+)/.exec(className || '')
@@ -31,6 +33,7 @@ export const Preview = ({ text }) => {
     <ReactMarkdown
       children={text}
       remarkPlugins={[remarkGfm, remarkBreaks]}
-      components={codeRenderer} />
+      components={codeRenderer}
+      data-testid="preview-1" />
   )
 }
