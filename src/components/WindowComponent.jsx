@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable indent */
 /* eslint-disable react/jsx-closing-tag-location */
@@ -5,8 +6,10 @@ import React, { useState } from 'react';
 import { MdPreview, MdOutlineEdit } from 'react-icons/md'
 import { AiOutlineFullscreen, AiOutlineFullscreenExit } from 'react-icons/ai'
 import { Preview } from './Preview';
+import { useText } from '../context/WindowComponent.context';
 
-export const WindowComponent = ({ headerName, text, setText }) => {
+export const WindowComponent = ({ headerName }) => {
+  const { text, setText } = useText();
   const [fullscreen, setFullscreen] = useState(false)
   const fullscreenHandler = () => {
     setFullscreen(!fullscreen)

@@ -11,12 +11,18 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Purpuse of this project
+## Purpose of this project
 
-This is part of the Free Code Camp - Frontend libraries certification built with:
+My purpose was to practice Sass and React context while completing the project for the Free Code Camp - Frontend libraries chapter. 
+
+### Tech stack
+
 - React
 - Sass
-- Still to come: React context
+- React context
+- Custom hooks
 - Still to come: Testing in Jest
+
+## Deployed link
 
 The project is deployed here: https://lambent-narwhal-cbd5af.netlify.app

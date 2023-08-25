@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+/* eslint-disable import/no-cycle */
+import React from 'react';
 import './style/App.scss';
 import { WindowComponent } from './components/WindowComponent';
-import data from './data.json'
+import { TextProvider } from './context/WindowComponent.context';
 
 const App = () => {
-  const [text, setText] = useState(data.markup)
   return (
-    <div className="app-container">
-      <WindowComponent headerName="editor" text={text} setText={setText} />
-      <WindowComponent headerName="preview" text={text} setText={setText} />
-    </div>
+    <TextProvider>
+      <div className="app-container">
+        <WindowComponent headerName="editor" />
+        <WindowComponent headerName="preview" />
+      </div>
+    </TextProvider>
   );
 }
 
