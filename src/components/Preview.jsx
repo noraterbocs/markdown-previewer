@@ -33,7 +33,6 @@ export const Preview = () => {
     <ReactMarkdown
       children={text}
       remarkPlugins={[remarkGfm, remarkBreaks]}
-      components={codeRenderer}
-      data-testid="preview-1" />
+      components={codeRenderer} />
   )
 }

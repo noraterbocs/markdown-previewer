@@ -9,7 +9,9 @@
     },
     "env": {
         "node": true,
-        "browser": true
+        "browser": true,
+        // "jest/globals": true,
+        "jest": true
     },
     "parserOptions": {
         "parser": "@babel/eslint-parser",
@@ -23,7 +25,8 @@
         }
     },
     "plugins": [
-        "react-hooks"
+        "react-hooks",
+        "jest"
     ],
     "rules": {
         "react/function-component-definition": [

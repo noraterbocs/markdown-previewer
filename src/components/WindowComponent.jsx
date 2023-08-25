@@ -15,7 +15,7 @@ export const WindowComponent = ({ headerName }) => {
     setFullscreen(!fullscreen)
   }
   return (
-    <section className={fullscreen ? 'fullscreen' : `${headerName}-container`}>
+    <section data-testid="preview-1" className={fullscreen ? 'fullscreen' : `${headerName}-container`}>
       <header className={`${headerName}-header`}>
         <p className="header-text">
           {headerName === 'editor' ? <MdOutlineEdit className="icon" /> : <MdPreview className="icon" />}
